@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Here is your custom route
+Route::get('/send-message', function () {
+    return view('sendmessage');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
