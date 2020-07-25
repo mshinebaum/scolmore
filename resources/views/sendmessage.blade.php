@@ -5,8 +5,9 @@
     <h1>Welcome to the Twilio message sending interface</h1>
 </div>  
 <div class="container-fluid ">
-    <form action="/action_page.php">
+    <form action="sendSms" method="post">
         <div class="form-group">
+        {{@csrf_field()}}
             <label for="phoneNumber">Destination Telephone Number:</label><br>
             <input type="tel" id="phoneNumber" name="phoneNumber"
             placeholder="Phone Number"

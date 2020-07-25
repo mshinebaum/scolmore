@@ -18,9 +18,19 @@ Route::get('/', function () {
 });
 
 // Here is your custom route
+
 Route::get('/send-message', function () {
     return view('sendmessage');
-});
+})->middleware('auth');
+
+Route::post('sendSms', 'smsController@sendSMS');
+
+
+
+
+
+
+
 
 Auth::routes();
 
