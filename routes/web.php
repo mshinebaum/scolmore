@@ -24,12 +24,7 @@ Route::get('/send-message', 'smssController@create')->middleware('auth');
 
 Route::resource('sms', 'smssController');
 
-Route::post('sendSms', 'smsSender@sendSMS');
-
-
-
-
-
+Route::post('/response', 'smssController@update');
 
 
 
