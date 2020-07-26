@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\smssController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,11 @@ Route::get('/', function () {
 
 // Here is your custom route
 
-Route::get('/send-message', function () {
-    return view('sendmessage');
-})->middleware('auth');
+Route::get('/send-message', 'smssController@create')->middleware('auth');
 
-Route::post('sendSms', 'smsController@sendSMS');
+Route::resource('sms', 'smssController');
+
+Route::post('sendSms', 'smsSender@sendSMS');
 
 
 

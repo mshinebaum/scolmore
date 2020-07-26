@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="title m-b-md text-center">
     <h1>Welcome to the Twilio message sending interface</h1>
-</div>  
+</div>
 <div class="container-fluid ">
    <h2> Congratulations the message has been sent via Twilio</h2>
     <p><strong>You sent the following message:-</strong></p>

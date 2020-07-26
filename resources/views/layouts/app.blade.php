@@ -33,6 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/send-message') }}">Send Message</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/sms') }}">Message Log</a></li>
 
                     </ul>
 
@@ -73,6 +76,7 @@
         </nav>
 
         <main class="py-4">
+            @include('includes.sysmessage')
             @yield('content')
         </main>
     </div>

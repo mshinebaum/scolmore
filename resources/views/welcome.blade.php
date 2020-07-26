@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="./send-message">Send Message</a>
-                    <a href="./message-history">Message History</a>
+                    <a href="./sms">Message History</a>
                 </div>
             </div>
         </div>
