@@ -14,8 +14,8 @@ class smsController extends Controller
     {
         $number = $req->input('phoneNumber');
         $message = $req->input('message');
-        $sid = 'ACd5df3aa0dcfc77182bd4f317db4d6150';
-        $token = '71af1e122071523a197618a1c8f0856b';
+        $sid = getenv('TWILIO_ACCOUNT_SID');
+        $token = getenv('TWILIO_AUTH_TOKEN');
 
 
         // Create an authenticated client for the Twilio API
