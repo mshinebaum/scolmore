@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
 use App\Sms;
+//Use Redis for queue and rate limiting
+use Illuminate\Support\Facades\Redis;
 // Use the REST API Client to make requests to the Twilio REST API
 use Twilio\Rest\Client;
 
 
-class smssController extends Controller
+class smssController extends Controller implements ShouldQueue
 {
     /**
      * Display a listing of the resource.
@@ -40,6 +42,7 @@ class smssController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate ($request, [
             'phoneNumber' => 'required',
             'message' => 'required',
@@ -60,7 +63,7 @@ class smssController extends Controller
             [ // the text will be sent from your Twilio number
             'from' => '+447588672907', // A Twilio phone number you purchased at twilio.com/console
             'body' => $message, // the body of the text message
-            "statusCallback" => "http://b44c33c58cc7.ngrok.io/response/"
+            "statusCallback" => "http://b44c33c58cc7.ngrok.io/response/"//Needs to be set to publicly accessable server address
             ]
   );
 

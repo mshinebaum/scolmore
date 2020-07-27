@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Twilio Messaging App
+
+Allows the sending of SMS messages via the Twilio API service to any UK mobile phone number.
+The app has a hard coded limit of 140 characters in the message. It contains a database which logs all sent messages including sender, message, times, and delivery status.
+It also uses user registration to restrict who can send messages to regitered users only.
+
+### Setup
+
+1. Add Twilio account ID and Auth tokens to the smssController@store along with the registered Twilio phone number. (Environment variables are more secure).
+2. Edit callback argument in smssController@store to make sure the webhook has access to the correct route on the server.
+3. Send!
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
