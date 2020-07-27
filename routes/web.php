@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Here is your custom route
 
@@ -27,7 +28,6 @@ Route::resource('sms', 'smssController');
 Route::post('/response', 'smssController@update');
 
 
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

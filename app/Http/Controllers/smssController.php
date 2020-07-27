@@ -17,7 +17,7 @@ class smssController extends Controller
      */
     public function index()
     {
-        // Returm message listing page
+        // Return message listing page
          $messages = Sms::orderBy('created_at', 'desc') ->paginate(10);
         return view ('messages')->with('messages', $messages);
     }
@@ -47,8 +47,8 @@ class smssController extends Controller
 
         $number = $request->input('phoneNumber');
         $message = $request->input('message');
-        $sid = getenv('TWILIO_ACCOUNT_SID');
-        $token = ''; //Remember to ente Auth Token
+        $sid = config('app.twilio_sid');
+        $token = ''; //Remember to enter Auth Token
 
 
         // Create an authenticated client for the Twilio API
@@ -60,7 +60,7 @@ class smssController extends Controller
             [ // the text will be sent from your Twilio number
             'from' => '+447588672907', // A Twilio phone number you purchased at twilio.com/console
             'body' => $message, // the body of the text message
-            "statusCallback" => "http://2b0d223371ca.ngrok.io/response/"
+            "statusCallback" => "http://b44c33c58cc7.ngrok.io/response/"
             ]
   );
 
@@ -111,17 +111,18 @@ class smssController extends Controller
      */
     public function update(Request $request)
     {
+
         $this->validate ($request, [
             'SmsSid' => 'required',
             'SmsStatus' => 'required',
         ]);
 
-         // Create Sms in database
-         $sms = Sms::where('sid', $request->SmsSid);
+        // Create Sms in database
+         $sms = Sms::where('sid', $request->SmsSid)->first();
          $sms->status = $request->SmsStatus;
          $sms->save();
 
-         return response('Hello World', 200);
+         return response('Status updated', 200);
 
 
     }

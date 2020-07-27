@@ -232,4 +232,10 @@ return [
 
     ],
 
+    /*
+    Environmental variables for Twilio security
+    */
+    'twilio_sid' => env('TWILIO_ACCOUNT_SID'),
+    'twilio_auth' => env('TWILIO_AUTH_TOKEN'),
+    'twilio_number' =>env('TWILIO_PHONE_NUMBER'),
 ];
